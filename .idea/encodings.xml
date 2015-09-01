@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" native2AsciiForPropertiesFiles="true" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/app/src/main/java/bean/CarAccident.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/bean/CarAccidentDetail.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/bean/CarDetail.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/bean/CityDetail.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/suntt/swipemenulistview/Car.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/suntt/swipemenulistview/CarReason.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/suntt/swipemenulistview/GetJsonToAccident.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/suntt/swipemenulistview/GetJsonToProvince.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/suntt/swipemenulistview/HttpUtil.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/com/suntt/swipemenulistview/MainActivity.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/db/CarDB.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/db/DBHelper.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/app/src/main/java/thread/ProvinceTask.java" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
