@@ -163,9 +163,12 @@ public class Car extends Activity {
                     tvengineNum.setVisibility(View.GONE);
                 } else {
                     if (engineno.equals("0")) {
+                        engineNum.setVisibility(View.VISIBLE);
+                        tvengineNum.setVisibility(View.VISIBLE);
                         engineNum.setHint("请输入发动机号");
                     } else {
-
+                        engineNum.setVisibility(View.VISIBLE);
+                        tvengineNum.setVisibility(View.VISIBLE);
                         engineNum.setHint("请输入发动机后" + engineno + "位");
                     }
                 }
@@ -174,8 +177,12 @@ public class Car extends Activity {
                     tvbodyNum.setVisibility(View.GONE);
                 } else {
                     if (classno.equals("0")) {
+                        bodyNum.setVisibility(View.VISIBLE);
+                        tvbodyNum.setVisibility(View.VISIBLE);
                         bodyNum.setHint("请输入车架号");
                     } else {
+                        bodyNum.setVisibility(View.VISIBLE);
+                        tvbodyNum.setVisibility(View.VISIBLE);
                         bodyNum.setHint("请输入车架号后" + classno + "位");
                     }
                 }
