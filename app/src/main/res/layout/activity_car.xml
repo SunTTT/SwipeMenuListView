@@ -90,6 +90,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:id="@+id/tvbodyNum"
             android:text="车架号码" />
 
         <EditText
@@ -102,6 +103,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
+            android:id="@+id/tvengineNum"
             android:text="发动机号码" />
 
         <EditText

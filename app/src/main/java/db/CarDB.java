@@ -87,6 +87,19 @@ public class CarDB {
         }
         return false;
     }
+    public CityDetail queryEngineNum(CityDetail cityDetail){
+        String province = cityDetail.getProvince();
+        String city = cityDetail.getCity_name();
+        Cursor cursor = db.rawQuery("select * from provincecitytable where province = ? and city_name = ?",new String[]{province,city});
+        if (cursor.moveToFirst()){
+            cityDetail.setEngine(cursor.getString(cursor.getColumnIndex("engine")));
+            cityDetail.setEngineno(cursor.getString(cursor.getColumnIndex("engineno")));
+            cityDetail.setClassa(cursor.getString(cursor.getColumnIndex("classa")));
+            cityDetail.setClassno(cursor.getString(cursor.getColumnIndex("classno")));
+        }
+        cursor.close();
+        return cityDetail;
+    }
 
     public List<CityDetail> loadCityDetail() {
         List<CityDetail> list = new ArrayList<CityDetail>();

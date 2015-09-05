@@ -10,8 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import bean.CarDetail;
+import bean.CityDetail;
 import db.CarDB;
 
 
@@ -70,6 +72,12 @@ public class Car extends Activity {
     private String selectCharCity;
     private CarDB carDB;
     private EditText engineNum;
+    private TextView tvbodyNum;
+    private TextView tvengineNum;
+    private String engine;
+    private String engineno;
+    private String classa;
+    private String classno;
 
 
     @Override
@@ -79,8 +87,11 @@ public class Car extends Activity {
         setContentView(R.layout.activity_car);
         carDB = CarDB.getInstance(this);
 
-
         setSpinner();
+        engineNum.setVisibility(View.VISIBLE);
+        bodyNum.setVisibility(View.VISIBLE);
+        tvengineNum.setVisibility(View.VISIBLE);
+        tvbodyNum.setVisibility(View.VISIBLE);
     }
 
     public void setSpinner() {
@@ -92,7 +103,8 @@ public class Car extends Activity {
         btn = (Button) findViewById(R.id.btn);
         etNum = (EditText) findViewById(R.id.etNum);
         bodyNum = (EditText) findViewById(R.id.bodyNum);
-
+        tvbodyNum = (TextView) findViewById(R.id.tvbodyNum);
+        tvengineNum = (TextView) findViewById(R.id.tvengineNum);
         engineNum = (EditText) findViewById(R.id.engineNum);
 
 
@@ -138,7 +150,35 @@ public class Car extends Activity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 selectCity = city[provincePosition][position];
+                CityDetail cityDetail2 = new CityDetail();
+                cityDetail2.setProvince(selectProvince);
+                cityDetail2.setCity_name(selectCity);
+                CityDetail dbcitydetail = carDB.queryEngineNum(cityDetail2);
+                 engine = dbcitydetail.getEngine();
+                 engineno = dbcitydetail.getEngineno();
+                 classa = dbcitydetail.getClassa();
+                 classno = dbcitydetail.getClassno();
+                if (engine.equals("0")) {
+                    engineNum.setVisibility(View.GONE);
+                    tvengineNum.setVisibility(View.GONE);
+                } else {
+                    if (engineno.equals("0")) {
+                        engineNum.setHint("请输入发动机号");
+                    } else {
 
+                        engineNum.setHint("请输入发动机后" + engineno + "位");
+                    }
+                }
+                if (classa.equals("0")) {
+                    bodyNum.setVisibility(View.GONE);
+                    tvbodyNum.setVisibility(View.GONE);
+                } else {
+                    if (classno.equals("0")) {
+                        bodyNum.setHint("请输入车架号");
+                    } else {
+                        bodyNum.setHint("请输入车架号后" + classno + "位");
+                    }
+                }
                 System.out.print("<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<" + selectCity + ">>>>>>>>>>>>>>>>>>>>>>>>>");
             }
 
@@ -185,17 +225,22 @@ public class Car extends Activity {
                 car.setEnginenumber(engineNum.getText().toString());
                 carDB.saveCarDetail(car);
                 String hphm = new StringBuffer(selectShortProvince).append(selectCharCity).append(etNum.getText().toString()).toString();
+if (etNum.getText().length()==0){
+    Toast.makeText(Car.this,"请输入车牌号",Toast.LENGTH_SHORT).show();
 
-                Intent i = new Intent(Car.this, CarReason.class);
-                i.putExtra("hphm", hphm);
-                Intent reason = new Intent();
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("car", car);
-                reason.putExtra("bundle", bundle);
-                i.putExtra("bundle",bundle);
-                setResult(2, reason);
-                startActivity(i);
-                Car.this.finish();
+}else{
+
+    Intent i = new Intent(Car.this, CarReason.class);
+    i.putExtra("hphm", hphm);
+    Intent reason = new Intent();
+    Bundle bundle = new Bundle();
+    bundle.putSerializable("car", car);
+    reason.putExtra("bundle", bundle);
+    i.putExtra("bundle", bundle);
+    setResult(2, reason);
+    startActivity(i);
+    Car.this.finish();
+}
 
 //                i.putExtra("selectProvince", selectProvince);
 //                i.putExtra("selectCity", selectCity);
