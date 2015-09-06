@@ -223,20 +223,21 @@ public class Car extends Activity {
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CarDetail car = new CarDetail();
-                car.setProvince(selectProvince);
-                car.setCity(selectCity);
-                car.setShortProvince(selectShortProvince);
-                car.setCharCity(selectCharCity);
-                car.setCarNumberString(etNum.getText().toString());
-                car.setEnginenumber(engineNum.getText().toString());
-                carDB.saveCarDetail(car);
-                String hphm = new StringBuffer(selectShortProvince).append(selectCharCity).append(etNum.getText().toString()).toString();
+
+
 if (etNum.getText().length()==0){
     Toast.makeText(Car.this,"请输入车牌号",Toast.LENGTH_SHORT).show();
 
 }else{
-
+    CarDetail car = new CarDetail();
+    car.setProvince(selectProvince);
+    car.setCity(selectCity);
+    car.setShortProvince(selectShortProvince);
+    car.setCharCity(selectCharCity);
+    car.setCarNumberString(etNum.getText().toString());
+    car.setEnginenumber(engineNum.getText().toString());
+    carDB.saveCarDetail(car);
+    String hphm = new StringBuffer(selectShortProvince).append(selectCharCity).append(etNum.getText().toString()).toString();
     Intent i = new Intent(Car.this, CarReason.class);
     i.putExtra("hphm", hphm);
     Intent reason = new Intent();
