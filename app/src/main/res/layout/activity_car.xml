@@ -58,7 +58,8 @@
             android:id="@+id/etNum"
             android:layout_width="150dp"
             android:layout_height="wrap_content"
-            android:hint="车牌号码后五位" />
+            android:hint="车牌号码后五位"
+            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789abcdefghijklmnopqrstuvwxyz"/>
 
     </LinearLayout>
 
@@ -98,7 +99,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="请输入车架号码后六位" />
+            android:hint="请输入车架号码后六位"
+            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789abcdefghijklmnopqrstuvwxyz"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -111,7 +113,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="请输入发动机号码后六位" />
+            android:hint="请输入发动机号码后六位"
+            android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789abcdefghijklmnopqrstuvwxyz"/>
     </LinearLayout>
 
     <Button
